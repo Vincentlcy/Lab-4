@@ -1,7 +1,7 @@
 clear all
 close all
 addpath /cshome/vis/data
-robot3D('new')
+%robot3D('new')
 load('human_data.mat')
 load('jump1.mat')
 
@@ -19,6 +19,7 @@ for i=1:size(L,2)
    Lp = invKin3D(Ml,Lp,L(:,i));
    Rp = invKin3D(Mr,Rp,R(:,i));
    theta=[Lp;Rp];
-   robot3D(humanInterp(drad,theta))
+   %robot3D(humanInterp(drad,theta))
+   stick3D(theta)
    pause(0.002);
 end
