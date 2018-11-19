@@ -6,6 +6,9 @@ function [pos, J] = evalRobot3D(M,theta)
     J(:,2) = M{1}*Rz(theta(3))*dRy(theta(2))*Rx(theta(1))*M{2}*Rx(theta(4))*M{3}*[0;0;0;1];
     J(:,3) = M{1}*dRz(theta(3))*Ry(theta(2))*Rx(theta(1))*M{2}*Rx(theta(4))*M{3}*[0;0;0;1];
     J(:,4) = M{1}*Rz(theta(3))*Ry(theta(2))*Rx(theta(1))*M{2}*dRx(theta(4))*M{3}*[0;0;0;1];
+    
+    pos = pos(1:3,:);
+    J = J(1:3,:);
 end
 
 function rx = Rx(theta) 
